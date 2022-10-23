@@ -11,9 +11,20 @@ export default function BoardMap({selectedObject}) {
       let y = e.target.dataset.row
       let x = e.target.dataset.cell
       // renderedMap[y][x] = 2
-      //добавить комманды шагов вправо,влево,вверх,вниз и фиксацию - tag на каждую точку массива
+      //добавить комманды шагов вправо,влево,вверх,вниз 
+      //и фиксацию - tag на каждую точку массива
+      // next row
+
       if(selectedObject) {
-        renderedMap[y][x] = selectedObject.mapSize
+        // renderedMap[y][x] = selectedObject.mapSize
+        for(let row = 0;row < selectedObject.mapSize.length; row++){
+          for(let col = 0;col < selectedObject.mapSize[row].length; col++){
+            if(selectedObject.mapSize[row][col] > 0) {
+              renderedMap[+y + row][+x + col] = 2
+            }
+
+          }
+        }
       }
     }
     setCurrentMap(renderedMap)
