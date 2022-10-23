@@ -1,9 +1,10 @@
 import { 
-  DashboardOutlined,GiftOutlined,FileTextOutlined,MailOutlined,MobileOutlined,PictureOutlined, 
+  DashboardOutlined,GiftOutlined,
+  FileTextOutlined,MailOutlined,MobileOutlined,PictureOutlined, PicCenterOutlined,
   ShopOutlined,ShoppingCartOutlined,SettingOutlined,
   ShoppingOutlined,UserOutlined,UsergroupAddOutlined
 } from '@ant-design/icons';
-import { APP_PREFIX_PATH, AUTH_PREFIX_PATH } from 'configs/AppConfig'
+import { APP_PREFIX_PATH } from 'configs/AppConfig'
 
 const dashBoardNavTree = [{
   key: 'main',
@@ -93,14 +94,24 @@ const dashBoardNavTree = [{
           submenu: []
         }
       ]
-    },    {
+    }, 
+    {
+      key: 'main-planner2D',
+      path: `${APP_PREFIX_PATH}/main/planner2D`,
+      title: '2D Планнер',
+      icon: PicCenterOutlined,
+      breadcrumb: false,
+      submenu: []
+    }, 
+    {
       key: 'main-banners',
       path: `${APP_PREFIX_PATH}/main/banners`,
       title: 'Баннеры',
       icon: PictureOutlined,
       breadcrumb: false,
       submenu: []
-    },    {
+    }, 
+    {
       key: 'main-promocodes',
       path: `${APP_PREFIX_PATH}/main/promocodes`,
       title: 'Промокоды',
