@@ -1,1 +1,0 @@
-{"version":3,"sources":["views/app-views/main/dashboard/index.js"],"names":["DashBoard"],"mappings":"mGAAA,+DAEe,SAASA,IACtB,OACE,4CAEJ,C","file":"static/js/15.7f0d623c.chunk.js","sourcesContent":["import React from 'react'\n\nexport default function DashBoard() {\n  return (\n    <div>DashBoard </div>\n  )\n}\n"],"sourceRoot":""}

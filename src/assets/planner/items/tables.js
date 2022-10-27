@@ -1,15 +1,12 @@
 
 export const tableTwoPersons = {
+  id: 1,
   name: 'Table for two persons',
   image: '',
-  mapSize: [
-    [1,1,1]
-  ],
-  mapSizeVertical: [
-    [1],
-    [1],
-    [1]
-  ],
+  mapSize: [[1,1,1]],
+  mapSizeVertical: [[1],[1],[1]]
+}
+
   // mapInsructions: (center) =>  {
   //   center[y][x] + 1
   //   center[y][x] - 1
@@ -18,10 +15,9 @@ export const tableTwoPersons = {
   //     center[y] - 1
   //   }
   // },
-  
-}
 
 export const tableFivePersons = {
+  id: 2,
   name: 'Table for five persons',
   image: '',
   mapSize: [
@@ -32,8 +28,10 @@ export const tableFivePersons = {
   mapSizeVertical: [
     [1,1,0],
     [1,1,1],
-    [1,1,0],
-  ],
+    [1,1,0]
+  ]
+}
+
   // mapInsructions: (center) =>  {
   //   center[y][x] + 1
   //   center[y][x] - 1
@@ -45,8 +43,6 @@ export const tableFivePersons = {
   //     center[y] - 1
   //   }
   // },
-  
-}
 
 export const tableObjects = [
   tableTwoPersons,
