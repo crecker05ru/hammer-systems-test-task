@@ -1,6 +1,7 @@
 import React from "react"
 import Objects from "./Objects"
 import BoardMap from "./BoardMap"
+import { Button } from 'antd';
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd"
 
 export default function Planner2D() {
@@ -27,6 +28,7 @@ export default function Planner2D() {
                   />
 
                   <BoardMap selectedObject={selectedObject} />
+
                 </div>
               {/* )} */}
             {/* </Droppable> */}
