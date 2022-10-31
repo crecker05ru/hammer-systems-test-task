@@ -4,6 +4,34 @@ import {defaultMap} from '../../../../assets/planner/map/defaultMap'
 
 export default function BoardMap({selectedObject}) {
   const [currentMap, setCurrentMap] = React.useState(defaultMap)
+  const [prerenderMap, setPrerenderMap] = React.useState(currentMap)
+  const [renderCount, setRenderCount] = React.useState(0)
+
+  function dragStartHandler(e) {
+
+    console.log('Board dragStartHandler e',e)
+  }
+
+  function dragOverHandler(e) {
+    e.preventDefault()
+    // setTimeout(() => {
+    //   prerenderBoard(e)
+    // }, 300);
+    // setPrerenderMap(currentMap)
+        prerenderBoard(e)
+        // setCurrentMap(defaultMap)
+
+    // setRenderCount(renderCount + 1)
+    // console.log('renderCount',renderCount)
+    console.log('Board dragOverHandle e',e)
+  }
+
+  function dropHandler(e) {
+    e.preventDefault()
+
+    mapHandler(e)
+    console.log('Board dropHandler e',e)
+  }
   function mapHandler(e) {
     console.log('e',e)
     console.log('selectedObject',selectedObject)
@@ -51,7 +79,42 @@ export default function BoardMap({selectedObject}) {
     setCurrentMap(renderedMap)
     console.log('renderedMap',renderedMap)
   }
+
+  function prerenderBoard(e) {
+    let renderedMap = [...prerenderMap]
+    if(e.target.dataset && e.target.dataset.row) {
+      let y = e.target.dataset.row
+      let x = e.target.dataset.cell
+
+      if(renderedMap[y][x] !== 2 && renderedMap[y][x] !== 0){
+        if(selectedObject) {
+          let drawMap =[]
+          // for(let row = 0;row < selectedObject.mapSize.length; row++){
+          //   for(let col = 0;col < selectedObject.mapSize[row].length; col++){
+          //     drawMap.push(renderedMap[+y + row][+x + col])
+          //   }}
+          for(let row = 0;row < selectedObject.mapSize.length; row++){
+            for(let col = 0;col < selectedObject.mapSize[row].length; col++){
+              if(renderedMap[+y + row][+x + col] !== 0 && renderedMap[+y + row][+x + col] !== 2){
+                if(selectedObject.mapSize[row][col] > 0) {
+                  console.log('drawMap',drawMap)
+                  console.log('drawMap.every(cell => cell === 1)',drawMap.every(cell => cell === 1))
+                  // if(drawMap.every(cell => cell === 1)){
+                    
+                  // }
+                  renderedMap[+y + row][+x + col] += 1
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    setPrerenderMap(renderedMap)
+    console.log('renderedMap',renderedMap)
+  }
   return (
-    <div className='board-map' onClick={ (e) => mapHandler(e)}>{currentMap && <RenderMap  renderMap={currentMap}/>}</div>
+    <div className='board-map' onClick={ (e) => mapHandler(e)}>{prerenderMap && <div draggable={false} onDragOver={(e) => dragOverHandler(e)} onDragStart={(e) => dragStartHandler(e)} onDrop={ (e) => dropHandler(e)}><RenderMap  renderMap={currentMap}/></div>}</div>
   )
 }

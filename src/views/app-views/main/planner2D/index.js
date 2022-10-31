@@ -12,24 +12,26 @@ export default function Planner2D() {
     <div className="planner2d">
       Planner2D
       <div>
-        <DragDropContext>
+        {/* <DragDropContext> */}
           <div>
-            <Droppable droppableId="board">
-              {(provided) => (
-                <div {...provided.droppableProps} ref={provided.innerRef}>
+            {/* <Droppable droppableId="board"> */}
+              {/* {(provided) => ( */}
+                <div 
+                // {...provided.droppableProps} ref={provided.innerRef}
+                >
                   drop
                   <Objects
                     setSelectedObject={setSelectedObject}
                     selectedObject={selectedObject}
-                    provided={provided}
+                    // provided={provided}
                   />
 
                   <BoardMap selectedObject={selectedObject} />
                 </div>
-              )}
-            </Droppable>
+              {/* )} */}
+            {/* </Droppable> */}
           </div>
-        </DragDropContext>
+        {/* </DragDropContext> */}
       </div>
     </div>
   )

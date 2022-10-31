@@ -21,24 +21,26 @@ export default function Objects({
         <ul className="objects__list">
           {tables &&
             tables.map((table, index) => (
-              <Draggable draggableId={table.name} index={index}>
-                {dragProvided => (
-                    <li               {...dragProvided.dragHandleProps}
-                    {...dragProvided.draggableProps}
-                    ref={dragProvided.innerRef}>
+              // <Draggable draggableId={table.name} index={index}>
+              //   {dragProvided => (
+                    <li               
+                    // {...dragProvided.dragHandleProps}
+                    // {...dragProvided.draggableProps}
+                    // ref={dragProvided.innerRef}
+                    >
                       <ObjectMap
                         data={table}
                         setSelectedObject={setSelectedObject}
                         selectedObject={selectedObject}
                         tableIndex={index}
-                        provided={provided}
+                        // provided={provided}
                       />
-                      {provided.placeholder}
+                      {/* {provided.placeholder} */}
                     </li>
-                )}
+              //   )}
 
             
-              </Draggable>
+              // </Draggable>
             ))}
             
         </ul>
